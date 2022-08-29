@@ -66,7 +66,12 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
      */
     public function tools()
     {
-        return [];
+        return [
+            //new \Strandafili\NovaInstalledPackages\Tool(),
+//            new \Davidpiesse\NovaPhpinfo\Tool(),
+            new \Llaski\NovaScheduledJobs\NovaScheduledJobsTool,
+            new \Visanduma\NovaTwoFactor\NovaTwoFactor(),
+        ];
     }
 
     /**
@@ -76,6 +81,8 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
      */
     public function register()
     {
-        //
+        Nova::sortResourcesBy(function ($resource) {
+            return $resource::$priority ?? 99999;
+        });
     }
 }

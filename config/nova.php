@@ -103,6 +103,7 @@ return [
         HandleInertiaRequests::class,
         DispatchServingNovaEvent::class,
         BootTools::class,
+        \Visanduma\NovaTwoFactor\Http\Middleware\TwoFa::class
     ],
 
     'api_middleware' => [

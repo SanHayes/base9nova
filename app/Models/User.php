@@ -12,6 +12,7 @@ use Mrlaozhou\Extend\Unlimitedable;
 use Storage;
 use Laravel\Passport\HasApiTokens;
 use Overtrue\EasySms\PhoneNumber;
+use Visanduma\NovaTwoFactor\ProtectWith2FA;
 
 class User extends Authenticatable
 {
@@ -19,6 +20,7 @@ class User extends Authenticatable
     use SoftDeletes;
     use dateTrait;
     use Unlimitedable;
+    use ProtectWith2FA;
 
     public function __construct(array $attributes = [])
     {
